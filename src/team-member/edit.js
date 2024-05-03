@@ -15,9 +15,11 @@ import {
 	ToolbarButton,
 	PanelBody,
 	TextareaControl,
+	SelectControl
 } from "@wordpress/components";
 import "./editor.scss";
 import { useEffect, useState } from "@wordpress/element";
+import { useSelect } from "@wordpress/data";
 
 export function Edit({
 	attributes,
@@ -28,6 +30,10 @@ export function Edit({
 	// ATTRIBUTES
 	const { name, bio, url, id, alt } = attributes;
 	const [blobURL, setBlobURL] = useState();
+	const imageObject = useSelect((select) => {
+		const { getMedia} = select ( 'core' );
+		return id ? getMedia( id ) : null;
+	},[id])
 
 	// FUNCTIONS
 
@@ -103,7 +109,20 @@ export function Edit({
 	return (
 		<>
 			<InspectorControls>
-				<PanelBody>
+				<PanelBody title={__('Image Settings' , 'team-members')}  >
+					{
+						id &&
+						<SelectControl
+						label = {__('Image Size' , 'team-members')}
+						// To get this data, go to:
+						//wp.data.select("core/block-editor").getSettings()
+						
+					
+						/>
+
+						
+
+					}
 					{
 					url && !isBlobURL(url) &&
 					<TextareaControl
