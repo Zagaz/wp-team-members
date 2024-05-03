@@ -4,19 +4,23 @@ import {
 	useBlockProps,
 	RichText,
 	MediaPlaceholder,
+	BlockControls,
+	MediaReplaceFlow,
 } from "@wordpress/block-editor";
-import { isBlobURL } from "@wordpress/blob";
+import { isBlobURL, revokeBlobURL } from "@wordpress/blob";
 import { Spinner, withNotices } from "@wordpress/components";
 import "./editor.scss";
+import { useEffect, useState } from "@wordpress/element";
 
 export function Edit({
 	attributes,
 	setAttributes,
-	noticeOperations,
-	noticeUI,
+	noticeOperations, // Notification operations
+	noticeUI, // Notification UI - For error messages (Wrong file type, etc.)
 }) {
 	// ATTRIBUTES
-	const { name, bio, url, alt } = attributes;
+	const { name, bio, url, id, alt } = attributes;
+	const [blobURL, setBlobURL] = useState();
 
 	// FUNCTIONS
 
@@ -53,13 +57,43 @@ export function Edit({
 	};
 
 	const onUploadError = (message) => {
-		noticeOperations.removeAllNotices();
-		noticeOperations.createErrorNotice(message);
+		noticeOperations.removeAllNotices(); // It deletes all previous notices
+		noticeOperations.createErrorNotice(message); // The message itself.
 	};
+
+	useEffect(() => {
+		//This will kill the Spinner if image was not uploaded.
+		if (!id && isBlobURL(url)) {
+			setAttributes({
+				url: undefined,
+				alt: "",
+			});
+		}
+	}, []);
+
+	useEffect(() => {
+		//It saves memory by revoking the previous blob URL.
+		if (isBlobURL(url)) {
+			setBlobURL(url);
+		} else {
+			revokeBlobURL(blobURL);
+		}
+	}, [url]);
 
 	// RETURN
 	return (
 		<>
+			<BlockControls group="inline">
+				<MediaReplaceFlow
+				// Replace Image
+					mediaId={id}
+					mediaURL={url}
+					accept="image/*"
+					onSelect={onSelectImage}
+					onSelectURL={onSelectURL}
+					onError={onUploadError}
+				/>
+			</BlockControls>
 			<div
 				{...useBlockProps({
 					className: "team-member-backend-card-img",
