@@ -86,6 +86,7 @@ export function Edit({
 			<BlockControls group="inline">
 				<MediaReplaceFlow
 				// Replace Image
+				name = {__("Replace Image", "team-member")}
 					mediaId={id}
 					mediaURL={url}
 					accept="image/*"
