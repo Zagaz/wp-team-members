@@ -8,7 +8,7 @@
 📋 - Notes and Documentation
 🐞 - Bug fix
 💎 - Beautify
-☕ - Coffee Break (Also: Lunch, Snack, Save etc.)
+☕ - Coffee Break (Also: Lunch, Snack, Save, Walk the dog etc.)
 
 ## Team Members
 

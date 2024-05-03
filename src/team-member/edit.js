@@ -7,6 +7,7 @@ import {
 	BlockControls,
 	MediaReplaceFlow,
 	InspectorControls,
+	store as blockEditorStore,
 } from "@wordpress/block-editor";
 import { isBlobURL, revokeBlobURL } from "@wordpress/blob";
 import {
@@ -15,7 +16,7 @@ import {
 	ToolbarButton,
 	PanelBody,
 	TextareaControl,
-	SelectControl
+	SelectControl,
 } from "@wordpress/components";
 import "./editor.scss";
 import { useEffect, useState } from "@wordpress/element";
@@ -30,12 +31,43 @@ export function Edit({
 	// ATTRIBUTES
 	const { name, bio, url, id, alt } = attributes;
 	const [blobURL, setBlobURL] = useState();
-	const imageObject = useSelect((select) => {
-		const { getMedia} = select ( 'core' );
-		return id ? getMedia( id ) : null;
-	},[id])
+	//
+	const imageObject = useSelect(
+		(select) => {
+			const { getMedia } = select("core");
+			return id ? getMedia(id) : null;
+		},
+		[id],
+	);
+
+
+	const imageSizes = useSelect((select) => {
+		return select(blockEditorStore).getSettings().imageSizes;
+	}, []);
+
+	console.log(imageSizes);
 
 	// FUNCTIONS
+
+	const getImagesSizeOptions = () => {
+		if (!imageObject) {
+			return [];
+		}
+		const options = [];
+		const sizes = imageObject.media_details.sizes;
+		for (const key in sizes) {
+			const size = sizes[key];
+			const imageSize = imageSizes.find((s) => s.slug === key);
+			if (imageSize) {
+				options.push({
+					label: imageSize.name,
+					value: size.source_url,
+				});
+			}
+		}
+
+		return options;
+	};
 
 	const onChangeName = (newName) => {
 		setAttributes({ name: newName });
@@ -86,6 +118,12 @@ export function Edit({
 		});
 	};
 
+	const onChangeImageSize = (newURL) => {
+		setAttributes({
+			url: newURL,
+		});
+	};
+
 	useEffect(() => {
 		//This will kill the Spinner if image was not uploaded.
 		if (!id && isBlobURL(url)) {
@@ -109,33 +147,27 @@ export function Edit({
 	return (
 		<>
 			<InspectorControls>
-				<PanelBody title={__('Image Settings' , 'team-members')}  >
-					{
-						id &&
+				<PanelBody title={__("Image Settings", "team-members")}>
+					{id && (
 						<SelectControl
-						label = {__('Image Size' , 'team-members')}
-						// To get this data, go to:
-						//wp.data.select("core/block-editor").getSettings()
-						
-					
+							label={__("Image Size", "team-members")}
+							options={getImagesSizeOptions()}
+							value={url}
+							onChange={onChangeImageSize}
 						/>
-
-						
-
-					}
-					{
-					url && !isBlobURL(url) &&
-					<TextareaControl
-						label={__("Alt Text", "team-member")}
-						value={alt}
-						onChange={onChangeAlt}
-						help={__(
-							"Alt text helps screen readers describe the image to people who can't see it.",
-							"team-member",
-						)}
-						placeholder={__("Alt text here", "team-member")}
-					/>
-					}
+					)}
+					{url && !isBlobURL(url) && (
+						<TextareaControl
+							label={__("Alt Text", "team-member")}
+							value={alt}
+							onChange={onChangeAlt}
+							help={__(
+								"Alt text helps screen readers describe the image to people who can't see it.",
+								"team-member",
+							)}
+							placeholder={__("Alt text here", "team-member")}
+						/>
+					)}
 				</PanelBody>
 			</InspectorControls>
 			{url && (
