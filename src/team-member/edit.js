@@ -86,6 +86,7 @@ export function Edit({
 					allowedTypes={["image"]}
 					notices={noticeUI}
 					accept="image/*"
+					disableMediaButtons={url}
 				/>
 
 				<RichText

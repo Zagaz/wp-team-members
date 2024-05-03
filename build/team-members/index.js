@@ -107,7 +107,8 @@ function Edit({
     onError: onUploadError,
     allowedTypes: ["image"],
     notices: noticeUI,
-    accept: "image/*"
+    accept: "image/*",
+    disableMediaButtons: url
   }), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.RichText, {
     placeholder: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Member Name", "team-member"),
     tagName: "h4",
