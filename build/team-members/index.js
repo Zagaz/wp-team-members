@@ -63,6 +63,11 @@ function Edit({
       bio: newBio
     });
   };
+  const onChangeAlt = newAlt => {
+    setAttributes({
+      alt: newAlt
+    });
+  };
   const onSelectImage = image => {
     if (!image || !image.url) {
       setAttributes({
@@ -89,6 +94,13 @@ function Edit({
     noticeOperations.removeAllNotices(); // It deletes all previous notices
     noticeOperations.createErrorNotice(message); // The message itself.
   };
+  const removeImage = () => {
+    setAttributes({
+      id: undefined,
+      url: undefined,
+      alt: ""
+    });
+  };
   (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_6__.useEffect)(() => {
     //This will kill the Spinner if image was not uploaded.
     if (!id && (0,_wordpress_blob__WEBPACK_IMPORTED_MODULE_3__.isBlobURL)(url)) {
@@ -108,7 +120,13 @@ function Edit({
   }, [url]);
 
   // RETURN
-  return (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(react__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.BlockControls, {
+  return (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(react__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.InspectorControls, null, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_4__.PanelBody, null, url && !(0,_wordpress_blob__WEBPACK_IMPORTED_MODULE_3__.isBlobURL)(url) && (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_4__.TextareaControl, {
+    label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Alt Text", "team-member"),
+    value: alt,
+    onChange: onChangeAlt,
+    help: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Alt text helps screen readers describe the image to people who can't see it.", "team-member"),
+    placeholder: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Alt text here", "team-member")
+  }))), url && (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.BlockControls, {
     group: "inline"
   }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.MediaReplaceFlow
   // Replace Image
@@ -121,7 +139,9 @@ function Edit({
     onSelect: onSelectImage,
     onSelectURL: onSelectURL,
     onError: onUploadError
-  })), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+  }), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_4__.ToolbarButton, {
+    onClick: removeImage
+  }, (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)("Replace Image", "team-member"))), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     ...(0,_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.useBlockProps)({
       className: "team-member-backend-card-img"
     })

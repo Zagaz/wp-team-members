@@ -6,9 +6,16 @@ import {
 	MediaPlaceholder,
 	BlockControls,
 	MediaReplaceFlow,
+	InspectorControls,
 } from "@wordpress/block-editor";
 import { isBlobURL, revokeBlobURL } from "@wordpress/blob";
-import { Spinner, withNotices } from "@wordpress/components";
+import {
+	Spinner,
+	withNotices,
+	ToolbarButton,
+	PanelBody,
+	TextareaControl,
+} from "@wordpress/components";
 import "./editor.scss";
 import { useEffect, useState } from "@wordpress/element";
 
@@ -30,6 +37,10 @@ export function Edit({
 
 	const onChangeBio = (newBio) => {
 		setAttributes({ bio: newBio });
+	};
+
+	const onChangeAlt = (newAlt) => {
+		setAttributes({ alt: newAlt });
 	};
 
 	const onSelectImage = (image) => {
@@ -61,6 +72,14 @@ export function Edit({
 		noticeOperations.createErrorNotice(message); // The message itself.
 	};
 
+	const removeImage = () => {
+		setAttributes({
+			id: undefined,
+			url: undefined,
+			alt: "",
+		});
+	};
+
 	useEffect(() => {
 		//This will kill the Spinner if image was not uploaded.
 		if (!id && isBlobURL(url)) {
@@ -83,19 +102,42 @@ export function Edit({
 	// RETURN
 	return (
 		<>
-			<BlockControls group="inline">
-				<MediaReplaceFlow
-				// Replace Image
-				name = {__("Replace Image", "team-member")}
-					mediaId={id}
-					mediaURL={url}
-					accept="image/*"
-					allowedTypes={["image"]}
-					onSelect={onSelectImage}
-					onSelectURL={onSelectURL}
-					onError={onUploadError}
-				/>
-			</BlockControls>
+			<InspectorControls>
+				<PanelBody>
+					{
+					url && !isBlobURL(url) &&
+					<TextareaControl
+						label={__("Alt Text", "team-member")}
+						value={alt}
+						onChange={onChangeAlt}
+						help={__(
+							"Alt text helps screen readers describe the image to people who can't see it.",
+							"team-member",
+						)}
+						placeholder={__("Alt text here", "team-member")}
+					/>
+					}
+				</PanelBody>
+			</InspectorControls>
+			{url && (
+				<BlockControls group="inline">
+					<MediaReplaceFlow
+						// Replace Image
+						name={__("Replace Image", "team-member")}
+						mediaId={id}
+						mediaURL={url}
+						accept="image/*"
+						allowedTypes={["image"]}
+						onSelect={onSelectImage}
+						onSelectURL={onSelectURL}
+						onError={onUploadError}
+					/>
+					<ToolbarButton onClick={removeImage}>
+						{__("Replace Image", "team-member")}
+					</ToolbarButton>
+				</BlockControls>
+			)}
+
 			<div
 				{...useBlockProps({
 					className: "team-member-backend-card-img",
