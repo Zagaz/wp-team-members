@@ -28,7 +28,6 @@ __webpack_require__.r(__webpack_exports__);
 // TEAM MEMBER
 
 
-//is blob url
 
 
 

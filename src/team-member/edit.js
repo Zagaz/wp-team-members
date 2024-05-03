@@ -5,7 +5,6 @@ import {
 	RichText,
 	MediaPlaceholder,
 } from "@wordpress/block-editor";
-//is blob url
 import { isBlobURL } from "@wordpress/blob";
 import { Spinner, withNotices } from "@wordpress/components";
 import "./editor.scss";
