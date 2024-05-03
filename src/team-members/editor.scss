@@ -1,0 +1,52 @@
+@import "./styles/variables";
+@import "./styles/elements";
+
+.wp-block-create-block-team-members {
+	display: block;
+
+	@for $i from 1 through 6 {
+		&.has-#{$i}-columns {
+			background-color: rgb(224, 224, 224);
+			.block-editor-inner-blocks {
+				.block-editor-block-list__layout {
+					display: flex;
+					flex-wrap: wrap;
+	
+					margin-left: 0;
+					margin-right: 0;
+
+					[data-type="team-member/team-member"] {
+						background-color: #f0f0f0;
+						box-sizing: border-box;
+                              border: 1px solid #f6fbff;
+						max-width: none;
+						width: calc(100% / #{$i} - 22px);
+						.team-member-team-member-img-{
+							.team-member-image{
+								width: 100%;
+								height: auto;
+							}
+						}
+					}
+
+					.block-list-appender {
+						box-sizing: border-box;
+						align-self: center;
+						display: flex;
+						align-items: center;
+						justify-content: center;
+						min-height: 100px;
+						// the width must be the same as the team member block
+						width: calc(100% / #{$i} - 22px);
+						position: relative;
+						height: fit-content;
+						margin-left: 10px;
+						margin-bottom: 10px;
+						border: 1px dashed rgb(128, 128, 128);
+						border-radius: 10px;
+					}
+				}
+			}
+		}
+	}
+}

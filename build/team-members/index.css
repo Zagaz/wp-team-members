@@ -1,0 +1,245 @@
+/*!****************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[4].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[4].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[4].use[3]!./src/team-member/editor.scss ***!
+  \****************************************************************************************************************************************************************************************************************************************************/
+.wp-block-team-member-team-member.team-member-backend-card-img .team-member-team-member-img- {
+  position: relative;
+}
+.wp-block-team-member-team-member.team-member-backend-card-img .team-member-team-member-img-.is-loading {
+  opacity: 0.5;
+}
+.wp-block-team-member-team-member.team-member-backend-card-img .team-member-team-member-img-.is-loading .components-spinner {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+}
+/*!*****************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[4].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[4].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[4].use[3]!./src/team-members/editor.scss ***!
+  \*****************************************************************************************************************************************************************************************************************************************************/
+h1, h2, h3, h4, h5, h6 {
+  color: #000000;
+}
+
+.wp-block-create-block-team-members {
+  display: block;
+}
+.wp-block-create-block-team-members.has-1-columns {
+  background-color: rgb(224, 224, 224);
+}
+.wp-block-create-block-team-members.has-1-columns .block-editor-inner-blocks .block-editor-block-list__layout {
+  display: flex;
+  flex-wrap: wrap;
+  margin-left: 0;
+  margin-right: 0;
+}
+.wp-block-create-block-team-members.has-1-columns .block-editor-inner-blocks .block-editor-block-list__layout [data-type="team-member/team-member"] {
+  background-color: #f0f0f0;
+  box-sizing: border-box;
+  border: 1px solid #f6fbff;
+  max-width: none;
+  width: calc(100% / 1 - 22px);
+}
+.wp-block-create-block-team-members.has-1-columns .block-editor-inner-blocks .block-editor-block-list__layout [data-type="team-member/team-member"] .team-member-team-member-img- .team-member-image {
+  width: 100%;
+  height: auto;
+}
+.wp-block-create-block-team-members.has-1-columns .block-editor-inner-blocks .block-editor-block-list__layout .block-list-appender {
+  box-sizing: border-box;
+  align-self: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100px;
+  width: calc(100% / 1 - 22px);
+  position: relative;
+  height: -moz-fit-content;
+  height: fit-content;
+  margin-left: 10px;
+  margin-bottom: 10px;
+  border: 1px dashed rgb(128, 128, 128);
+  border-radius: 10px;
+}
+.wp-block-create-block-team-members.has-2-columns {
+  background-color: rgb(224, 224, 224);
+}
+.wp-block-create-block-team-members.has-2-columns .block-editor-inner-blocks .block-editor-block-list__layout {
+  display: flex;
+  flex-wrap: wrap;
+  margin-left: 0;
+  margin-right: 0;
+}
+.wp-block-create-block-team-members.has-2-columns .block-editor-inner-blocks .block-editor-block-list__layout [data-type="team-member/team-member"] {
+  background-color: #f0f0f0;
+  box-sizing: border-box;
+  border: 1px solid #f6fbff;
+  max-width: none;
+  width: calc(100% / 2 - 22px);
+}
+.wp-block-create-block-team-members.has-2-columns .block-editor-inner-blocks .block-editor-block-list__layout [data-type="team-member/team-member"] .team-member-team-member-img- .team-member-image {
+  width: 100%;
+  height: auto;
+}
+.wp-block-create-block-team-members.has-2-columns .block-editor-inner-blocks .block-editor-block-list__layout .block-list-appender {
+  box-sizing: border-box;
+  align-self: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100px;
+  width: calc(100% / 2 - 22px);
+  position: relative;
+  height: -moz-fit-content;
+  height: fit-content;
+  margin-left: 10px;
+  margin-bottom: 10px;
+  border: 1px dashed rgb(128, 128, 128);
+  border-radius: 10px;
+}
+.wp-block-create-block-team-members.has-3-columns {
+  background-color: rgb(224, 224, 224);
+}
+.wp-block-create-block-team-members.has-3-columns .block-editor-inner-blocks .block-editor-block-list__layout {
+  display: flex;
+  flex-wrap: wrap;
+  margin-left: 0;
+  margin-right: 0;
+}
+.wp-block-create-block-team-members.has-3-columns .block-editor-inner-blocks .block-editor-block-list__layout [data-type="team-member/team-member"] {
+  background-color: #f0f0f0;
+  box-sizing: border-box;
+  border: 1px solid #f6fbff;
+  max-width: none;
+  width: calc(100% / 3 - 22px);
+}
+.wp-block-create-block-team-members.has-3-columns .block-editor-inner-blocks .block-editor-block-list__layout [data-type="team-member/team-member"] .team-member-team-member-img- .team-member-image {
+  width: 100%;
+  height: auto;
+}
+.wp-block-create-block-team-members.has-3-columns .block-editor-inner-blocks .block-editor-block-list__layout .block-list-appender {
+  box-sizing: border-box;
+  align-self: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100px;
+  width: calc(100% / 3 - 22px);
+  position: relative;
+  height: -moz-fit-content;
+  height: fit-content;
+  margin-left: 10px;
+  margin-bottom: 10px;
+  border: 1px dashed rgb(128, 128, 128);
+  border-radius: 10px;
+}
+.wp-block-create-block-team-members.has-4-columns {
+  background-color: rgb(224, 224, 224);
+}
+.wp-block-create-block-team-members.has-4-columns .block-editor-inner-blocks .block-editor-block-list__layout {
+  display: flex;
+  flex-wrap: wrap;
+  margin-left: 0;
+  margin-right: 0;
+}
+.wp-block-create-block-team-members.has-4-columns .block-editor-inner-blocks .block-editor-block-list__layout [data-type="team-member/team-member"] {
+  background-color: #f0f0f0;
+  box-sizing: border-box;
+  border: 1px solid #f6fbff;
+  max-width: none;
+  width: calc(100% / 4 - 22px);
+}
+.wp-block-create-block-team-members.has-4-columns .block-editor-inner-blocks .block-editor-block-list__layout [data-type="team-member/team-member"] .team-member-team-member-img- .team-member-image {
+  width: 100%;
+  height: auto;
+}
+.wp-block-create-block-team-members.has-4-columns .block-editor-inner-blocks .block-editor-block-list__layout .block-list-appender {
+  box-sizing: border-box;
+  align-self: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100px;
+  width: calc(100% / 4 - 22px);
+  position: relative;
+  height: -moz-fit-content;
+  height: fit-content;
+  margin-left: 10px;
+  margin-bottom: 10px;
+  border: 1px dashed rgb(128, 128, 128);
+  border-radius: 10px;
+}
+.wp-block-create-block-team-members.has-5-columns {
+  background-color: rgb(224, 224, 224);
+}
+.wp-block-create-block-team-members.has-5-columns .block-editor-inner-blocks .block-editor-block-list__layout {
+  display: flex;
+  flex-wrap: wrap;
+  margin-left: 0;
+  margin-right: 0;
+}
+.wp-block-create-block-team-members.has-5-columns .block-editor-inner-blocks .block-editor-block-list__layout [data-type="team-member/team-member"] {
+  background-color: #f0f0f0;
+  box-sizing: border-box;
+  border: 1px solid #f6fbff;
+  max-width: none;
+  width: calc(100% / 5 - 22px);
+}
+.wp-block-create-block-team-members.has-5-columns .block-editor-inner-blocks .block-editor-block-list__layout [data-type="team-member/team-member"] .team-member-team-member-img- .team-member-image {
+  width: 100%;
+  height: auto;
+}
+.wp-block-create-block-team-members.has-5-columns .block-editor-inner-blocks .block-editor-block-list__layout .block-list-appender {
+  box-sizing: border-box;
+  align-self: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100px;
+  width: calc(100% / 5 - 22px);
+  position: relative;
+  height: -moz-fit-content;
+  height: fit-content;
+  margin-left: 10px;
+  margin-bottom: 10px;
+  border: 1px dashed rgb(128, 128, 128);
+  border-radius: 10px;
+}
+.wp-block-create-block-team-members.has-6-columns {
+  background-color: rgb(224, 224, 224);
+}
+.wp-block-create-block-team-members.has-6-columns .block-editor-inner-blocks .block-editor-block-list__layout {
+  display: flex;
+  flex-wrap: wrap;
+  margin-left: 0;
+  margin-right: 0;
+}
+.wp-block-create-block-team-members.has-6-columns .block-editor-inner-blocks .block-editor-block-list__layout [data-type="team-member/team-member"] {
+  background-color: #f0f0f0;
+  box-sizing: border-box;
+  border: 1px solid #f6fbff;
+  max-width: none;
+  width: calc(100% / 6 - 22px);
+}
+.wp-block-create-block-team-members.has-6-columns .block-editor-inner-blocks .block-editor-block-list__layout [data-type="team-member/team-member"] .team-member-team-member-img- .team-member-image {
+  width: 100%;
+  height: auto;
+}
+.wp-block-create-block-team-members.has-6-columns .block-editor-inner-blocks .block-editor-block-list__layout .block-list-appender {
+  box-sizing: border-box;
+  align-self: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100px;
+  width: calc(100% / 6 - 22px);
+  position: relative;
+  height: -moz-fit-content;
+  height: fit-content;
+  margin-left: 10px;
+  margin-bottom: 10px;
+  border: 1px dashed rgb(128, 128, 128);
+  border-radius: 10px;
+}
+
+/*# sourceMappingURL=index.css.map*/

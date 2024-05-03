@@ -1,0 +1,21 @@
+@import "./styles/variables";
+@import "./styles/elements";
+
+// TEAM MEMBERS
+.wp-block-create-block-team-members {
+	display: flex;
+	flex-wrap: wrap;
+	width: inherit;
+
+	@for $i from 1 through 6 {
+		&.has-#{$i}-columns {
+			.wp-block-team-member-team-member {
+				width: calc(100% / #{$i} - 20px);
+			}
+		}
+	}
+
+	.wp-block-team-member-team-member {
+		margin: 10px;
+	}
+}
