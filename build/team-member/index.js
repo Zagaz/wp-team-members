@@ -116,6 +116,7 @@ function Edit({
     mediaId: id,
     mediaURL: url,
     accept: "image/*",
+    allowedTypes: ["image"],
     onSelect: onSelectImage,
     onSelectURL: onSelectURL,
     onError: onUploadError
