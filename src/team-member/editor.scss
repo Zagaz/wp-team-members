@@ -1,3 +1,8 @@
+@mixin inputsBE(){
+	padding: 10px;
+     background-color: white;
+} 
+
 .wp-block-team-member-team-member {
 	&.team-member-backend-card-img {
 		.team-member-team-member-img- {
@@ -15,6 +20,20 @@
 			}
 		}
 	}
+	.team-data-wrapper{
+		padding: 10px;
+
+		.team-member-name{
+		@include inputsBE();
+		}
+		.team-member-bio{
+			padding: 10px;
+			@include inputsBE();
+			
+	
+		}
+	}
+
 }
 
 //team-member-image

@@ -216,6 +216,7 @@ export function Edit({
 					accept="image/*"
 					disableMediaButtons={url}
 				/>
+				<div className="team-data-wrapper">
 
 				<RichText
 					placeholder={__("Member Name", "team-member")}
@@ -233,6 +234,8 @@ export function Edit({
 					allowedFormats={[]}
 					className="team-member-bio"
 				/>
+				</div>
+
 			</div>
 		</>
 	);

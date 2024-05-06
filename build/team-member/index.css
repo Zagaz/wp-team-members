@@ -15,5 +15,17 @@
   bottom: 0;
   margin: auto;
 }
+.wp-block-team-member-team-member .team-data-wrapper {
+  padding: 10px;
+}
+.wp-block-team-member-team-member .team-data-wrapper .team-member-name {
+  padding: 10px;
+  background-color: white;
+}
+.wp-block-team-member-team-member .team-data-wrapper .team-member-bio {
+  padding: 10px;
+  padding: 10px;
+  background-color: white;
+}
 
 /*# sourceMappingURL=index.css.map*/
